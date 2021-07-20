@@ -46,6 +46,11 @@ if [[ ! -f /db/init_done ]] ; then
       echo "${OVERPASS_COOKIE_JAR_CONTENTS}" >> /db/cookie.jar
     fi
     chown overpass /db/cookie.jar
+    
+    if [ -d "$CUSTOM_RULES_DIR" ]; then
+       echo "Copying custom rules"
+       cp -v /opt/custom-rules/* /db/db/rules
+    fi
 
     if [[ "$OVERPASS_MODE" = "clone" ]]; then
         mkdir -p /db/db \
