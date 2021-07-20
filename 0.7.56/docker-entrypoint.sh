@@ -50,7 +50,7 @@ if [[ ! -f /db/init_done ]] ; then
     CUSTOM_RULES_DIR=/opt/custom-rules
     if ! [[ -z "$(ls -A $CUSTOM_RULES_DIR)" ]]; then
       echo "Copying custom rules"
-      cp -v $CUSTOM_RULES_DIR/* /db/db/rules
+      cp -v $CUSTOM_RULES_DIR/* /app/etc/rules
     else
       echo "No custom rules to copy"
     fi
