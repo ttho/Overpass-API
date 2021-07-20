@@ -69,6 +69,7 @@ ADD https://raw.githubusercontent.com/geofabrik/sendfile_osm_oauth_protector/7a6
     /app/bin/
 
 RUN addgroup overpass && adduser --home /db --disabled-password --gecos overpass --ingroup overpass overpass
+RUN mkdir -p /opt/custom-rules ; chown -R overpass:overpass /opt/custom-rules
 
 COPY requirements.txt /app/
 
