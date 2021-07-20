@@ -47,9 +47,11 @@ if [[ ! -f /db/init_done ]] ; then
     fi
     chown overpass /db/cookie.jar
     
-    if [ -d "$CUSTOM_RULES_DIR" ]; then
+    if [[ -d "$CUSTOM_RULES_DIR" ]]; then
        echo "Copying custom rules"
        cp -v /opt/custom-rules/* /db/db/rules
+    else
+       echo "Directory $CUSTOM_RULES_DIR does not exist."
     fi
 
     if [[ "$OVERPASS_MODE" = "clone" ]]; then
